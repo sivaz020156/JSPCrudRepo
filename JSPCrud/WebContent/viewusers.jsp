@@ -15,14 +15,16 @@ List<User> list=UserDao.getAllRecords();
 pageContext.setAttribute("list",list);
 %>
 
-<table border="1" width="90%">
-<tr><th>Id</th><th>Edit</th><th>Delete</th></tr>
-
-<c:forEach items="${list}" var="uw">
-	<tr><td>${uw.id}</td><td><a href="editform.jsp?id=${uw}">Edit</a></td><td><a href="deleteuser.jsp?id=${uw}">Delete</a></td></tr>
-</c:forEach>
-
-</table>
+<table border="1" width="90%">  
+<tr><th>Id</th><th>Name</th><th>Password</th><th>Email</th>  
+<th>Sex</th><th>Country</th><th>Edit</th><th>Delete</th></tr>  
+<c:forEach items="${list}" var="u">  
+<tr><td>${u.id}</td><td>${u.name}</td><td>${u.password}</td>  
+<td>${u.email}</td><td>${u.sex}</td><td>${u.country}</td>  
+<td><a href="editform.jsp?id=${u.id}">Edit</a></td>  
+<td><a href="deleteuser.jsp?id=${u.id}">Delete</a></td></tr>  
+</c:forEach>  
+</table> 
 <br/><a href="adduserform.jsp">Add New User</a>
 
 </body>
